@@ -22,7 +22,13 @@ if not cookies.ready():
     st.stop()
 
 # ----------------------------- LOAD DB CONFIG -----------------------------
-DB_CONFIG = toml.load("src/.streamlit/secrets.toml")['database']
+DB_CONFIG = {
+    'host': st.secrets["database"]["host"],
+    'port': st.secrets["database"]["port"],
+    'database': st.secrets["database"]["database"],
+    'user': st.secrets["database"]["user"],
+    'password': st.secrets["database"]["password"]
+}
 
 @st.cache_resource
 def get_db_engine():
@@ -695,4 +701,5 @@ def main():
         
 
 if __name__ == "__main__":
+
     main()
