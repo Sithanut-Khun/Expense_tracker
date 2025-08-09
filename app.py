@@ -163,7 +163,7 @@ def show_login():
         if st.button("Sign Up", use_container_width=True):
             switch_page("signup")
         
-        if st.button("Forgot Password?", type="tertiary"):
+        if st.button("Forgot Password?", type="secondary"):
             switch_page("reset")
 
 
@@ -704,4 +704,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
