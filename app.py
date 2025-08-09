@@ -11,6 +11,9 @@ import toml
 from streamlit_cookies_manager import EncryptedCookieManager
 from sqlalchemy import create_engine
 
+
+st.set_page_config(page_title="Smart Expense Tracker", layout="wide")
+
 # Use the secret from the .toml file
 cookie_secret = st.secrets["cookie"]["secret"]
 
@@ -548,9 +551,7 @@ def set_active_tab(tab_name):
     st.session_state.active_tab = tab_name
 
 
-def main():
-    st.set_page_config(page_title="Smart Expense Tracker", layout="wide")
-    
+def main():  
     # --- Session state initialization ---
     if "auth_page" not in st.session_state: st.session_state.auth_page = "login"
     if "user_id" not in st.session_state: st.session_state.user_id = None
@@ -703,3 +704,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
